@@ -1,0 +1,23 @@
+<h3>Listado de Héroes</h3>
+
+<!-- nothingWasDeleted se define como una referencia local y esta definida dentro de este html -->
+<!-- el *ngIf se podia colocar dentro del h3, pero es por saber que se puede hacer por estructura asi. -->
+<div *ngIf="deleteHero; else nothingWasDeleted">
+  <h3>Héroe borrado <small class="text-danger"> {{ deleteHero }} </small></h3>
+</div>
+
+<!-- Este ng-template se usa para mostrar algo adicional desde donde se programe, en este caso si no se borra nada del arreglo se muestra -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger">
+  Borrar último héroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
+</ul>
