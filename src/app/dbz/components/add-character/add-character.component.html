@@ -1,0 +1,17 @@
+<!-- En el input se puede asignar el valor que viene del componente usando [value] = "character.name"-->
+<!-- Se pueden asignar elemento asi: () esto para saignar un evento y [] esto para asociar un atributo y [()] esto para asociar un evento y un atributo al mismo tiempo -->
+<h4>Agregar personaje</h4>
+
+<form class="row" (ngSubmit)="emitCharacter()">
+  <input type="text" [(ngModel)]="character.name" name="name" class="form-control mb-2" placeholder="Nombre">
+
+  <input type="number" [(ngModel)]="character.power" name="power" class="form-control mb-2" placeholder="Poder">
+
+  <!-- <button type="submit" class="btn btn-primary" (click)="emitCharacter()"></button> -->
+  <button type="submit" class="btn btn-primary">
+    Agregar
+  </button>
+
+  <!-- pipe json: me imprime el objeto character en json, sus variables y valores. Si se deja solo solamente sale [object Object]-->
+  <!-- <pre>{{ character | json }}</pre> -->
+</form>
